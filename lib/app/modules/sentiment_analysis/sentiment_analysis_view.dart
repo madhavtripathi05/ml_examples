@@ -7,7 +7,6 @@ import 'package:ml_examples/app/common/extensions/hover_extension.dart';
 import 'package:ml_examples/app/modules/sentiment_analysis/sentiment_analysis_controller.dart';
 import 'package:ml_examples/app/routes/app_pages.dart';
 import 'package:ml_examples/app/utils/app_utils.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class SentimentAnalysisView extends GetView<SentimentAnalysisController> {
   @override
@@ -29,7 +28,7 @@ class SentimentAnalysisView extends GetView<SentimentAnalysisController> {
                 .moveUpOnHover
           ],
         ),
-        body: SlidingUpPanel(body: buildBody()),
+        body: buildBody(),
       );
     });
   }

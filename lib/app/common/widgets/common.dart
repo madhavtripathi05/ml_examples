@@ -15,7 +15,12 @@ Widget buildCard(String text, String imagePath, double size, Function onTap,
       child: Card(
         elevation: 7,
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-          buildSvg(imagePath, 100),
+          Container(
+            height: 100,
+            width: 100,
+            padding: const EdgeInsets.all(8.0),
+            child: buildSvg(imagePath, 100),
+          ),
           Flexible(
             child: Text(
               text,
@@ -63,7 +68,7 @@ Widget buildSvg(String imagePath, double size) {
           height: size,
           fit: BoxFit.contain,
         )
-      : SvgPicture.network(
+      : SvgPicture.asset(
           imagePath,
           width: size,
           height: size,

@@ -11,4 +11,7 @@ abstract class Routes{
   static const RESEARCH_PAPERS = '/research-papers';
   static const SENTIMENT_ANALYSIS = '/sentiment-analysis';
   static const IMAGE_CAPTION = '/image-caption';
+  static const QNA = '/qna';
+  static const OCR = '/ocr';
+  static const STYLE_TRANSFER = '/style-transfer';
 }

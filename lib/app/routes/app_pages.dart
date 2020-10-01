@@ -1,3 +1,9 @@
+import 'package:ml_examples/app/modules/style_transfer/style_transfer_view.dart';
+import 'package:ml_examples/app/modules/style_transfer/style_transfer_binding.dart';
+import 'package:ml_examples/app/modules/ocr/ocr_view.dart';
+import 'package:ml_examples/app/modules/ocr/ocr_binding.dart';
+import 'package:ml_examples/app/modules/qna/qna_view.dart';
+import 'package:ml_examples/app/modules/qna/qna_binding.dart';
 import 'package:ml_examples/app/modules/image_caption/image_caption_view.dart';
 import 'package:ml_examples/app/modules/image_caption/image_caption_binding.dart';
 import 'package:ml_examples/app/modules/sentiment_analysis/sentiment_analysis_view.dart';
@@ -61,6 +67,21 @@ static const INITIAL = Routes.HOME;
       name: Routes.IMAGE_CAPTION, 
       page:()=> ImageCaptionView(), 
       binding: ImageCaptionBinding(),
+    ),
+    GetPage(
+      name: Routes.QNA, 
+      page:()=> QnaView(), 
+      binding: QnaBinding(),
+    ),
+    GetPage(
+      name: Routes.OCR, 
+      page:()=> OcrView(), 
+      binding: OcrBinding(),
+    ),
+    GetPage(
+      name: Routes.STYLE_TRANSFER, 
+      page:()=> StyleTransferView(), 
+      binding: StyleTransferBinding(),
     ),
   ];
 }

@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:convert';
+import 'dart:typed_data';
 import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
@@ -19,7 +20,8 @@ class ApiService {
           "content-type": "application/json",
           "accept": "application/json",
         }));
-    var d = res.data['predictions'][0];
+    var d = res.data;
+
     return d;
   }
 
@@ -31,7 +33,7 @@ class ApiService {
         "questions": ["$question"]
       }
     ]);
-    return ans[0];
+    return ans['predictions'][0][0];
   }
 
   Future<String> sentimentClassifier(String query) async {
@@ -60,8 +62,8 @@ class ApiService {
     return d;
   }
 
-  Future<Map<String, dynamic>> fetchResponseFromImage(
-      File image, String url) async {
+  Future<dynamic> fetchResponseFromImage(File image, String url,
+      {bool imgOutput = false}) async {
     Map<String, dynamic> responseData;
 
     final mimeTypeData =
@@ -79,8 +81,10 @@ class ApiService {
       final streamedResponse = await imageUploadRequest.send();
       final response = await http.Response.fromStream(streamedResponse);
 
+      print('response: ${response.body}');
+      if (imgOutput) return response.bodyBytes;
+      print('response-data: $responseData');
       responseData = json.decode(response.body);
-      print('res: $responseData');
     } catch (e) {
       print(e);
     }
@@ -91,6 +95,13 @@ class ApiService {
     final response =
         await fetchResponseFromImage(image, getUrl('image-caption-generator'));
     return response;
+  }
+
+  Future<Uint8List> styleTransfer(File image, String model) async {
+    final bodyBytes = await fetchResponseFromImage(
+        image, getUrl('fast-neural-style-transfer') + '?model=$model',
+        imgOutput: true);
+    return bodyBytes;
   }
 
   Future<Map<String, dynamic>> ocr(File image) async {

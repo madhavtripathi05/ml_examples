@@ -1,29 +1,21 @@
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:ml_examples/app/services/api_service.dart';
 
-class ImageCaptionController extends GetxController {
+class StyleTransferController extends GetxController {
   File pickedImage;
   final picker = ImagePicker();
   final apiService = ApiService();
   bool loading = false;
-  String resultText;
+  Uint8List base64image;
+  String selected = 'mosaic';
 
-  void parseResponse(var res) {
-    String r = '';
-    var predictions = res['predictions'];
-
-    for (var prediction in predictions) {
-      var caption = prediction['caption'];
-      var probability = prediction['probability'];
-      print('caption: $caption prob:$probability');
-      r += '$caption\n';
-    }
-    resultText = r;
+  onSelected(val) {
+    selected = val;
     update();
-    print('$predictions');
   }
 
   pickGalleryImage() async {
@@ -35,8 +27,7 @@ class ImageCaptionController extends GetxController {
     loading = true;
     update();
 
-    final data = await apiService.imageToCaption(pickedImage);
-    parseResponse(data);
+    base64image = await apiService.styleTransfer(pickedImage, selected);
 
     loading = false;
     update();

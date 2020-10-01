@@ -14,9 +14,13 @@ class SentimentAnalysisController extends GetxController {
     final stopwatch = Stopwatch()..start();
     isLoading = true;
     update();
-    results = await ApiService().sendText(queryController.text);
-    data =
-        'Sentiment: ${results['sentiment']} \nPositive: ${trim(results['confidenceScores']['positive'] * 100)}% \nNegative: ${trim(results['confidenceScores']['negative'] * 100)}% \nNeutral: ${trim(results['confidenceScores']['neutral'] * 100)}%\n';
+    if (queryController.text.length > 2) {
+      results = await ApiService().sendText(queryController.text);
+      data =
+          'Sentiment: ${results['sentiment']} \nPositive: ${trim(results['confidenceScores']['positive'] * 100)}% \nNegative: ${trim(results['confidenceScores']['negative'] * 100)}% \nNeutral: ${trim(results['confidenceScores']['neutral'] * 100)}%\n';
+    } else
+      Get.rawSnackbar(title: 'Warning!', message: 'Enter a valid query');
+
     isLoading = false;
     print('results: $data');
     update();
