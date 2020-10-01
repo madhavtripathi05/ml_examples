@@ -32,7 +32,6 @@
 /build/
 
 # Keys
-lib/keys.dart
 
 # Web related
 lib/generated_plugin_registrant.dart
