@@ -1,16 +1,67 @@
-# ml_examples
+# ML Examples
 
-A new Flutter project.
+#### Material Design Application which will help you to get started with ML and In App examples of some Algorithms.
 
-## Getting Started
+[Download APK](https://drive.google.com/file/d/1I5NhC02pFi9rUzElKzr6ygorDKgROb6X/view?usp=drivesdk)
 
-This project is a starting point for a Flutter application.
+### Some Screenshots:
 
-A few resources to get you started if this is your first Flutter project:
+**Dashboard**
+![Dashboard](screenshots/img10.jpeg)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+**ML Algorithms**
+![ML Algorithms](screenshots/img9.jpeg)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**Sentiment Analysis**
+![Sentiment Analysis](screenshots/img8.jpeg)
+
+**Generate Caption from Image**
+![Generate Caption](screenshots/img7.jpeg)
+
+**OCR**
+![OCR](screenshots/img6.jpeg)
+
+**QnA based upon given Context**
+![QnA](screenshots/img5.jpeg)
+
+**Object Detection using Yolo (TFLite)**
+![QnA](screenshots/img4.jpeg)
+
+**StyleTransfer**
+![QnA](screenshots/img3.jpeg)
+
+**Pose Estimation using Posenet (TFLite)**
+![QnA](screenshots/img2.jpeg)
+
+**Image Segmentation using Deeplab (TFLite)**
+![QnA](screenshots/img1.jpeg)
+
+#### APIs used
+
+[IBM Models](https://developer.ibm.com/exchanges/models/all/)
+
+- OCR
+- Image Caption Generation
+- Style Transfer
+- Question Answering
+
+[Rapid API (Sentiment Analysis)](https://developer.ibm.com/exchanges/models/all/)
+
+- Sentiment Analysis
+
+#### Models used
+
+[TFLite Models](https://www.tensorflow.org/lite/models)
+
+- Deeplab
+- Mobilenet
+- Posenet
+- Yolo
+
+#### Developed with Flutter and Getx
+
+[Flutter](https://flutter.dev)
+
+[Getx](https://github.com/jonataslaw/getx)
+
+[Webapp (WIP)](https://madhavtripathi05.github.io/ml_examples)

@@ -52,88 +52,80 @@ class HomeView extends GetView<HomeController> {
   }
 
   Widget buildBody() {
-    return LayoutBuilder(builder: (context, c) {
-      return ListView(
-        physics: BouncingScrollPhysics(),
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: SelectableText(
-              quotes[Random().nextInt(quotes.length - 1)],
-              style: kQuoteTextStyle,
-              textAlign: TextAlign.center,
-            ),
+    return ListView(
+      physics: BouncingScrollPhysics(),
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: SelectableText(
+            quotes[Random().nextInt(quotes.length - 1)],
+            style: kQuoteTextStyle,
+            textAlign: TextAlign.center,
           ),
-          SizedBox(height: 20),
-          Get.width > 500
-              ? Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        buildCard('Get Started', 'assets/svgs/master_plan.svg',
-                                Get.width * 0.4, () {
-                          Get.toNamed(Routes.GET_STARTED);
-                        }, key: '__GET_STARTED__')
-                            .moveUpOnHover,
-                        buildCard(
-                                'ML Algorithms',
-                                'assets/svgs/growth_curve.svg',
-                                Get.width * 0.4, () {
-                          Get.toNamed(Routes.ML_ALGORITHMS);
-                        }, key: '__ML_ALGORITHMS__')
-                            .moveUpOnHover,
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        buildCard(
-                                'Categories',
-                                'assets/svgs/processing_thoughts.svg',
-                                Get.width * 0.4, () {
-                          Get.toNamed(Routes.CATEGORIES);
-                        }, key: '__CATEGORIES__')
-                            .moveUpOnHover,
-                        buildCard(
-                                'Research Papers',
-                                'assets/svgs/marketing.svg',
-                                Get.width * 0.4, () {
-                          Get.toNamed(Routes.RESEARCH_PAPERS);
-                        }, key: '__RESEARCH_PAPERS__')
-                            .moveUpOnHover,
-                      ],
-                    ),
-                  ],
-                )
-              : Column(
-                  children: [
-                    buildCard('Get Started', 'assets/svgs/master_plan.svg',
-                            Get.width, () {
-                      Get.toNamed(Routes.GET_STARTED);
-                    }, key: '__GET_STARTED_M__')
-                        .moveUpOnHover,
-                    buildCard('ML Algorithms', 'assets/svgs/growth_curve.svg',
-                            Get.width, () {
-                      Get.toNamed(Routes.ML_ALGORITHMS);
-                    }, key: '__ML_ALGORITHMS_M__')
-                        .moveUpOnHover,
-                    buildCard(
-                            'Categories',
-                            'assets/svgs/processing_thoughts.svg',
-                            Get.width, () {
-                      Get.toNamed(Routes.CATEGORIES);
-                    }, key: '__CATEGORIES_M__')
-                        .moveUpOnHover,
-                    buildCard('Research Papers', 'assets/svgs/marketing.svg',
-                            Get.width, () {
-                      Get.toNamed(Routes.RESEARCH_PAPERS);
-                    }, key: '__RESEARCH_PAPERS_M__')
-                        .moveUpOnHover,
-                  ],
-                ),
-        ],
-      );
-    });
+        ),
+        SizedBox(height: 20),
+        Get.width > 500
+            ? Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      buildCard('Get Started', 'assets/svgs/master_plan.svg',
+                              Get.width * 0.4, () {
+                        Get.toNamed(Routes.GET_STARTED);
+                      }, key: '__GET_STARTED__')
+                          .moveUpOnHover,
+                      buildCard('ML Algorithms', 'assets/svgs/growth_curve.svg',
+                              Get.width * 0.4, () {
+                        Get.toNamed(Routes.ML_ALGORITHMS);
+                      }, key: '__ML_ALGORITHMS__')
+                          .moveUpOnHover,
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      buildCard(
+                              'Categories',
+                              'assets/svgs/processing_thoughts.svg',
+                              Get.width * 0.4, () {
+                        Get.toNamed(Routes.CATEGORIES);
+                      }, key: '__CATEGORIES__')
+                          .moveUpOnHover,
+                      buildCard('Research Papers', 'assets/svgs/marketing.svg',
+                              Get.width * 0.4, () {
+                        Get.toNamed(Routes.RESEARCH_PAPERS);
+                      }, key: '__RESEARCH_PAPERS__')
+                          .moveUpOnHover,
+                    ],
+                  ),
+                ],
+              )
+            : Column(
+                children: [
+                  buildCard('Get Started', 'assets/svgs/master_plan.svg',
+                          Get.width, () {
+                    Get.toNamed(Routes.GET_STARTED);
+                  }, key: '__GET_STARTED_M__')
+                      .moveUpOnHover,
+                  buildCard('ML Algorithms', 'assets/svgs/growth_curve.svg',
+                          Get.width, () {
+                    Get.toNamed(Routes.ML_ALGORITHMS);
+                  }, key: '__ML_ALGORITHMS_M__')
+                      .moveUpOnHover,
+                  buildCard('Categories', 'assets/svgs/processing_thoughts.svg',
+                          Get.width, () {
+                    Get.toNamed(Routes.CATEGORIES);
+                  }, key: '__CATEGORIES_M__')
+                      .moveUpOnHover,
+                  buildCard('Research Papers', 'assets/svgs/marketing.svg',
+                          Get.width, () {
+                    Get.toNamed(Routes.RESEARCH_PAPERS);
+                  }, key: '__RESEARCH_PAPERS_M__')
+                      .moveUpOnHover,
+                ],
+              ),
+      ],
+    );
   }
 }
