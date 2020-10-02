@@ -43,14 +43,13 @@ class StyleTransferView extends GetView<StyleTransferController> {
           child: Center(
             child: Container(
               margin: EdgeInsets.all(18),
-              height: 300,
-              width: 200,
+              width: Get.width,
               child: sc.pickedImage != null
                   ? ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.file(
                         sc.pickedImage,
-                        fit: BoxFit.cover,
+                        fit: BoxFit.fill,
                       ),
                     )
                   : Center(
@@ -67,6 +66,40 @@ class StyleTransferView extends GetView<StyleTransferController> {
           child: Text(
               'Try to upload images with less resolution for faster results'),
         ),
+        sc.loading
+            ? Container(
+                height: 50,
+                width: 50,
+                child: sc.loading
+                    ? Center(child: CircularProgressIndicator())
+                    : Text(''))
+            : Column(
+                children: [
+                  SizedBox(height: 10),
+                  Text(
+                    sc.base64image != null
+                        ? 'Normal Image Converted to ${sc.selected}'
+                        : 'Convert your image to ${sc.selected}',
+                    style: sc.base64image != null ? kBoldTextGreen : kBoldText,
+                  ),
+                  SizedBox(height: 10),
+                ],
+              ),
+        sc.base64image != null
+            ? Center(
+                child: Container(
+                  margin: EdgeInsets.all(18),
+                  width: Get.width,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.memory(
+                      sc.base64image,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+              )
+            : Text(''),
         Container(
           margin:
               EdgeInsets.symmetric(vertical: 20, horizontal: Get.width * 0.3),
@@ -75,7 +108,7 @@ class StyleTransferView extends GetView<StyleTransferController> {
               underline: Container(),
               icon: Icon(FlutterIcons.arrow_down_drop_circle_mco),
               value: sc.selected,
-              items: <String>['mosaic', 'candy', 'rainy_princess', 'udnie']
+              items: <String>['mosaic', 'candy', 'rain_princess', 'udnie']
                   .map((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
@@ -86,41 +119,6 @@ class StyleTransferView extends GetView<StyleTransferController> {
             ),
           ),
         ),
-        sc.loading
-            ? Container(
-                height: 50,
-                width: 50,
-                child: sc.loading
-                    ? Center(child: CircularProgressIndicator())
-                    : Text(''))
-            : Column(
-                children: [
-                  SizedBox(height: 20),
-                  Text(
-                    sc.base64image != null
-                        ? 'Normal Image Converted to ${sc.selected}'
-                        : 'Convert your image to ${sc.selected}',
-                    style: kBoldText,
-                  ),
-                  SizedBox(height: 10),
-                ],
-              ),
-        sc.base64image != null
-            ? Center(
-                child: Container(
-                  margin: EdgeInsets.all(18),
-                  height: 300,
-                  width: 200,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.memory(
-                      sc.base64image,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-              )
-            : Text('')
       ]);
     });
   }

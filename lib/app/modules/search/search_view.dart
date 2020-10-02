@@ -74,7 +74,7 @@ class SearchView extends GetView<SearchController> {
               autofocus: true,
               decoration: InputDecoration(
                   hintText: "Search an Item (i.e. Algorithm, Category etc)",
-                  hintStyle: TextStyle(color: Colors.black45),
+                  // hintStyle: TextStyle(color: Colors.black45),
                   border: InputBorder.none),
               onChanged: (val) {
                 sc.search(val);
@@ -83,7 +83,7 @@ class SearchView extends GetView<SearchController> {
           ),
           Icon(
             Icons.search,
-            color: Colors.black54,
+            // color: Colors.black54,
           )
         ],
       ),

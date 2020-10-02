@@ -14,4 +14,9 @@ abstract class Routes{
   static const QNA = '/qna';
   static const OCR = '/ocr';
   static const STYLE_TRANSFER = '/style-transfer';
+  static const IMAGE_CLASSIFICATION = '/image-classification';
+  static const OBJECT_DETECTION = '/object-detection';
+  static const REALTIME_DETECTION = '/realtime-detection';
+  static const POSE_DETECTION = '/pose-detection';
+  static const IMAGE_SEGMENTATION = '/image-segmentation';
 }

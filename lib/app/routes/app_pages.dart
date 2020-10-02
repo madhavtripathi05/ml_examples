@@ -1,3 +1,13 @@
+import 'package:ml_examples/app/modules/image_segmentation/image_segmentation_view.dart';
+import 'package:ml_examples/app/modules/image_segmentation/image_segmentation_binding.dart';
+import 'package:ml_examples/app/modules/pose_detection/pose_detection_view.dart';
+import 'package:ml_examples/app/modules/pose_detection/pose_detection_binding.dart';
+import 'package:ml_examples/app/modules/realtime_detection/realtime_detection_view.dart';
+import 'package:ml_examples/app/modules/realtime_detection/realtime_detection_binding.dart';
+import 'package:ml_examples/app/modules/object_detection/object_detection_view.dart';
+import 'package:ml_examples/app/modules/object_detection/object_detection_binding.dart';
+import 'package:ml_examples/app/modules/image_classification/image_classification_view.dart';
+import 'package:ml_examples/app/modules/image_classification/image_classification_binding.dart';
 import 'package:ml_examples/app/modules/style_transfer/style_transfer_view.dart';
 import 'package:ml_examples/app/modules/style_transfer/style_transfer_binding.dart';
 import 'package:ml_examples/app/modules/ocr/ocr_view.dart';
@@ -24,64 +34,90 @@ import 'package:get/get.dart';
 part 'app_routes.dart';
 
 class AppPages {
-  
-static const INITIAL = Routes.HOME;
+  static const INITIAL = Routes.HOME;
 
   static final routes = [
     GetPage(
-      name: Routes.HOME, 
-      page:()=> HomeView(), 
+      name: Routes.HOME,
+      page: () => HomeView(),
       binding: HomeBinding(),
     ),
     GetPage(
-      name: Routes.GET_STARTED, 
-      page:()=> GetStartedView(), 
+      name: Routes.GET_STARTED,
+      page: () => GetStartedView(),
       binding: GetStartedBinding(),
     ),
     GetPage(
-      name: Routes.CATEGORIES, 
-      page:()=> CategoriesView(), 
+      name: Routes.CATEGORIES,
+      page: () => CategoriesView(),
       binding: CategoriesBinding(),
     ),
     GetPage(
-      name: Routes.ML_ALGORITHMS, 
-      page:()=> MlAlgorithmsView(), 
-      binding: MlAlgorithmsBinding(),
-    ),
+        name: Routes.ML_ALGORITHMS,
+        page: () => MlAlgorithmsView(),
+        bindings: [
+          MlAlgorithmsBinding(),
+          RealtimeDetectionBinding(),
+        ]),
     GetPage(
-      name: Routes.SEARCH, 
-      page:()=> SearchView(), 
+      name: Routes.SEARCH,
+      page: () => SearchView(),
       binding: SearchBinding(),
     ),
     GetPage(
-      name: Routes.RESEARCH_PAPERS, 
-      page:()=> ResearchPapersView(), 
+      name: Routes.RESEARCH_PAPERS,
+      page: () => ResearchPapersView(),
       binding: ResearchPapersBinding(),
     ),
     GetPage(
-      name: Routes.SENTIMENT_ANALYSIS, 
-      page:()=> SentimentAnalysisView(), 
+      name: Routes.SENTIMENT_ANALYSIS,
+      page: () => SentimentAnalysisView(),
       binding: SentimentAnalysisBinding(),
     ),
     GetPage(
-      name: Routes.IMAGE_CAPTION, 
-      page:()=> ImageCaptionView(), 
+      name: Routes.IMAGE_CAPTION,
+      page: () => ImageCaptionView(),
       binding: ImageCaptionBinding(),
     ),
     GetPage(
-      name: Routes.QNA, 
-      page:()=> QnaView(), 
+      name: Routes.QNA,
+      page: () => QnaView(),
       binding: QnaBinding(),
     ),
     GetPage(
-      name: Routes.OCR, 
-      page:()=> OcrView(), 
+      name: Routes.OCR,
+      page: () => OcrView(),
       binding: OcrBinding(),
     ),
     GetPage(
-      name: Routes.STYLE_TRANSFER, 
-      page:()=> StyleTransferView(), 
+      name: Routes.STYLE_TRANSFER,
+      page: () => StyleTransferView(),
       binding: StyleTransferBinding(),
+    ),
+    GetPage(
+      name: Routes.IMAGE_CLASSIFICATION,
+      page: () => ImageClassificationView(),
+      binding: ImageClassificationBinding(),
+    ),
+    GetPage(
+      name: Routes.OBJECT_DETECTION,
+      page: () => ObjectDetectionView(),
+      binding: ObjectDetectionBinding(),
+    ),
+    GetPage(
+      name: Routes.REALTIME_DETECTION,
+      page: () => RealtimeDetectionView(),
+      binding: RealtimeDetectionBinding(),
+    ),
+    GetPage(
+      name: Routes.POSE_DETECTION, 
+      page:()=> PoseDetectionView(), 
+      binding: PoseDetectionBinding(),
+    ),
+    GetPage(
+      name: Routes.IMAGE_SEGMENTATION, 
+      page:()=> ImageSegmentationView(), 
+      binding: ImageSegmentationBinding(),
     ),
   ];
 }

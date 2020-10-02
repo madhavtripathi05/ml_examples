@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -103,6 +104,75 @@ class MlAlgorithmsView extends GetView<MlAlgorithmsController> {
                             Get.width, () {
                       Get.toNamed(Routes.STYLE_TRANSFER);
                     }, key: '__STYLE_TRANSFER__')
+                        .moveUpOnHover,
+                    buildCard(
+                            'Image Classification',
+                            'assets/svgs/image_classification.svg',
+                            Get.width, () async {
+                      if (!kIsWeb) {
+                        // final rc = RealtimeDetectionController.to;
+
+                        // rc.model = mobilenet;
+                        // await rc.loadModel();
+                        // Get.toNamed(Routes.REALTIME_DETECTION);
+                        Get.toNamed(Routes.IMAGE_CLASSIFICATION);
+                      } else
+                        Get.rawSnackbar(
+                            title: 'Alert!',
+                            message:
+                                'Sorry! you can\'t open this in browser please try App!');
+                    }, key: '__IMAGE_CLASSIFICATION__')
+                        .moveUpOnHover,
+                    buildCard('Object Detection', 'assets/svgs/team_up.svg',
+                            Get.width, () async {
+                      if (!kIsWeb) {
+                        // final rc = RealtimeDetectionController.to;
+
+                        // rc.model = yolo;
+                        // await rc.loadModel();
+                        // Get.toNamed(Routes.REALTIME_DETECTION);
+
+                        Get.toNamed(Routes.OBJECT_DETECTION);
+                      } else
+                        Get.rawSnackbar(
+                            title: 'Alert!',
+                            message:
+                                'Sorry! you can\'t open this in browser please try App!');
+                    }, key: '__OBJECT_DETECTION__')
+                        .moveUpOnHover,
+                    buildCard('Pose Estimation', 'assets/svgs/pose.svg',
+                            Get.width, () async {
+                      if (!kIsWeb) {
+                        // final rc = RealtimeDetectionController.to;
+
+                        // rc.model = posenet;
+                        // await rc.loadModel();
+                        // Get.toNamed(Routes.REALTIME_DETECTION);
+
+                        Get.toNamed(Routes.POSE_DETECTION);
+                      } else
+                        Get.rawSnackbar(
+                            title: 'Alert!',
+                            message:
+                                'Sorry! you can\'t open this in browser please try App!');
+                    }, key: '__POSE_ESTIMATION__')
+                        .moveUpOnHover,
+                    buildCard('Image Segmentation', 'assets/svgs/process.svg',
+                            Get.width, () async {
+                      if (!kIsWeb) {
+                        // final rc = RealtimeDetectionController.to;
+
+                        // rc.model = posenet;
+                        // await rc.loadModel();
+                        // Get.toNamed(Routes.REALTIME_DETECTION);
+
+                        Get.toNamed(Routes.IMAGE_SEGMENTATION);
+                      } else
+                        Get.rawSnackbar(
+                            title: 'Alert!',
+                            message:
+                                'Sorry! you can\'t open this in browser please try App!');
+                    }, key: '__IMAGE_SEGMENTATION__')
                         .moveUpOnHover,
                   ],
                 ),

@@ -43,14 +43,13 @@ class OcrView extends GetView<OcrController> {
           onTap: oc.pickGalleryImage,
           child: Container(
             margin: EdgeInsets.all(18),
-            height: 300,
-            width: 200,
+            width: Get.width,
             child: oc.pickedImage != null
                 ? ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: Image.file(
                       oc.pickedImage,
-                      fit: BoxFit.contain,
+                      fit: BoxFit.fill,
                     ),
                   )
                 : Center(
@@ -78,23 +77,14 @@ class OcrView extends GetView<OcrController> {
                   SizedBox(height: 10),
                   Padding(
                     padding: const EdgeInsets.all(18.0),
-                    child: Text(
+                    child: SelectableText(
                       '${oc.resultText}',
                       textAlign: TextAlign.center,
-                      style: kBoldText,
+                      style: kBoldTextGreen,
                     ),
                   ),
                 ],
               ),
-        oc.base64image != null
-            ? Container(
-                height: 200,
-                width: 200,
-                child: Image.memory(
-                  oc.base64image,
-                  fit: BoxFit.contain,
-                ))
-            : Text('')
       ]);
     });
   }

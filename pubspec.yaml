@@ -42,6 +42,7 @@ dependencies:
   cached_network_image: ^2.3.2+1
   dio: ^3.0.10
   widget_with_codeview: ^1.0.3
+  camera: ^0.5.8+7
 
 dev_dependencies:
   flutter_test:
@@ -93,3 +94,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+

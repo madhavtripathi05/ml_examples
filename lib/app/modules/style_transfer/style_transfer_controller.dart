@@ -13,13 +13,23 @@ class StyleTransferController extends GetxController {
   Uint8List base64image;
   String selected = 'mosaic';
 
-  onSelected(val) {
+  onSelected(val) async {
     selected = val;
     update();
+    if (pickedImage != null) {
+      loading = true;
+      update();
+
+      base64image = await apiService.styleTransfer(pickedImage, selected);
+
+      loading = false;
+      update();
+    }
   }
 
   pickGalleryImage() async {
-    var image = await picker.getImage(source: ImageSource.gallery);
+    var image =
+        await picker.getImage(source: ImageSource.gallery, imageQuality: 70);
 
     if (image == null) return null;
 

@@ -36,20 +36,18 @@ class ImageCaptionView extends GetView<ImageCaptionController> {
 
   Widget buildBody() {
     return GetBuilder<ImageCaptionController>(builder: (ic) {
-      return ListView(children: [
-        SizedBox(height: 100),
+      return ListView(physics: BouncingScrollPhysics(), children: [
         GestureDetector(
           onTap: ic.pickGalleryImage,
           child: Container(
             margin: EdgeInsets.all(18),
-            height: 300,
-            width: 200,
+            width: Get.width,
             child: ic.pickedImage != null
                 ? ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: Image.file(
                       ic.pickedImage,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                     ),
                   )
                 : Center(
@@ -80,7 +78,7 @@ class ImageCaptionView extends GetView<ImageCaptionController> {
                     child: Text(
                       '${ic.resultText}',
                       textAlign: TextAlign.center,
-                      style: kBoldText,
+                      style: kBoldTextGreen,
                     ),
                   ),
                 ],
