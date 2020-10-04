@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
 import 'package:ml_examples/app/common/data/texts.dart';
+import 'package:ml_examples/app/common/models/category_item.dart';
 import 'package:ml_examples/app/common/widgets/common.dart';
 import 'package:ml_examples/app/common/widgets/custom_action.dart';
 import 'package:ml_examples/app/common/widgets/custom_appbar.dart';
@@ -39,8 +40,7 @@ class CategoriesView extends GetView<CategoriesController> {
           'assets/svgs/basics.svg',
           Get.width,
           () {
-            // Get.to(MlBasics());
-            // Get.to(DetailPage(basics));
+            Get.to(DetailPage(detail: CategoryItem.fromJson(basics[2])));
           },
         ),
         buildCard(
@@ -48,7 +48,7 @@ class CategoriesView extends GetView<CategoriesController> {
           'assets/svgs/data_extraction.svg',
           Get.width,
           () {
-            // Get.to(DeployingModels());
+            Get.to(DetailPage(detail: CategoryItem.fromJson(basics[1])));
           },
         ),
         buildCard(

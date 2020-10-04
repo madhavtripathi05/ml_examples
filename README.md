@@ -2,7 +2,7 @@
 
 #### Material Design Application which will help you to get started with ML and In App examples of some Algorithms.
 
-[Download APK](https://drive.google.com/file/d/1I5NhC02pFi9rUzElKzr6ygorDKgROb6X/view?usp=drivesdk)
+[Download APK](https://drive.google.com/file/d/1SsCcWyTNY5xQjcZIOGGib2bnLh-6BHuq/view?usp=sharing)
 
 ### Some Screenshots:
 
@@ -35,6 +35,15 @@
 
 **Image Segmentation using Deeplab (TFLite)**
 ![QnA](screenshots/img1.jpeg)
+
+### TODOs
+
+- [ ] Complete Search Option
+- [ ] Add research APIs (_maybe create an API ?!_)
+- [ ] Add more stuff in get started
+- [ ] Add More Categories
+- [ ] Refine Web App
+- [ ] Try calling ml5.js Models using JS Channels (**_This is gonna be challenging_**)
 
 #### APIs used
 
