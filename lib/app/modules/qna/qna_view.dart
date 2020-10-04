@@ -3,6 +3,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
 import 'package:ml_examples/app/common/widgets/custom_action.dart';
 import 'package:ml_examples/app/common/widgets/custom_appbar.dart';
+import 'package:ml_examples/app/common/widgets/webview_page.dart';
 import 'package:ml_examples/app/modules/qna/qna_controller.dart';
 import 'package:ml_examples/app/routes/app_pages.dart';
 import 'package:ml_examples/app/utils/app_utils.dart';
@@ -11,20 +12,30 @@ class QnaView extends GetView<QnaController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar(
-          'QnA using Context',
-          leadings: [
-            CustomAction(() {
-              navigator.pop();
-            }, FlutterIcons.back_ant)
-          ],
-          actions: [
-            CustomAction(() {
-              Get.offNamed(Routes.HOME);
-            }, FlutterIcons.home_ant)
-          ],
+      appBar: CustomAppBar(
+        'QnA using Context',
+        leadings: [
+          CustomAction(() {
+            navigator.pop();
+          }, FlutterIcons.back_ant)
+        ],
+        actions: [
+          CustomAction(() {
+            Get.offNamed(Routes.HOME);
+          }, FlutterIcons.home_ant)
+        ],
+      ),
+      body: buildBody(),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(FlutterIcons.info_circle_faw),
+        onPressed: () => Get.to(
+          WebviewPage(
+            url: 'https://arxiv.org/abs/1810.04805',
+            title: 'QnA',
+          ),
         ),
-        body: buildBody());
+      ),
+    );
   }
 
   Widget buildBody() {
@@ -91,6 +102,20 @@ class QnaView extends GetView<QnaController> {
                   ),
                 )
               : Text(''),
+          Container(
+            margin: EdgeInsets.all(18),
+            padding: EdgeInsets.all(18),
+            color: Get.isDarkMode ? Color(0xff222222) : Colors.grey[300],
+            child: Text(
+              """What Happens when you Enter the Text?
+
+We send this Text to an API(Application Programming Interface) which processes the same and generates the predicted output. 
+
+For more info regarding the model used and other details, click on i button below
+""",
+              style: kCodeStyle,
+            ),
+          ),
         ],
       );
     });

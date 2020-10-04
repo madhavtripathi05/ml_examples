@@ -119,6 +119,20 @@ class StyleTransferView extends GetView<StyleTransferController> {
             ),
           ),
         ),
+        Container(
+          margin: EdgeInsets.all(18),
+          padding: EdgeInsets.all(18),
+          color: Get.isDarkMode ? Color(0xff222222) : Colors.grey[300],
+          child: Text(
+            """What Happens when you select an Image?
+
+We send this image to an API(Application Programming Interface) which processes the image and generates the predicted output. 
+
+For more info regarding the model used and other details, click on i button below
+""",
+            style: kCodeStyle,
+          ),
+        ),
       ]);
     });
   }

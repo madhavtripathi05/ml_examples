@@ -13,6 +13,8 @@ List<Widget> renderBoxes(
   if (recognitions == null) return [];
   if (imageHeight == null || imageWidth == null) return [];
 
+  screenWidth -= 36; //Because we're adding padding to image
+  screenHeight -= 36; //Because we're adding padding to image
   double X = screenWidth;
   double Y = imageHeight / imageWidth * screenWidth;
   Color color = primaryColor;
@@ -52,6 +54,8 @@ List<Widget> renderKeypoints(
   if (recognitions == null) return [];
   if (imageHeight == null || imageWidth == null) return [];
 
+  screenWidth -= 36; //Because we're adding padding to image
+  screenHeight -= 36;
   double X = screenWidth;
   double Y = imageHeight / imageWidth * screenWidth;
 

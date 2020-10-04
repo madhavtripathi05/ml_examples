@@ -43,6 +43,7 @@ dependencies:
   dio: ^3.0.10
   widget_with_codeview: ^1.0.3
   camera: ^0.5.8+7
+  webview_flutter: ^1.0.0
 
 dev_dependencies:
   flutter_test:

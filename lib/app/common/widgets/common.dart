@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -5,10 +6,10 @@ import 'package:ml_examples/app/utils/app_utils.dart';
 import 'package:widget_with_codeview/syntax_highlighter.dart';
 
 Widget buildCard(String text, String imagePath, double size, Function onTap,
-    {String key}) {
+    {String key, bool image = false}) {
   return Container(
     width: size,
-    key: Key(key),
+    key: Key(DateTime.now().microsecond.toString()),
     padding: const EdgeInsets.all(8.0),
     child: InkWell(
       onTap: onTap,
@@ -19,7 +20,8 @@ Widget buildCard(String text, String imagePath, double size, Function onTap,
             height: 100,
             width: 100,
             padding: const EdgeInsets.all(8.0),
-            child: buildSvg(imagePath, 100),
+            child:
+                image ? buildImage(imagePath, 100) : buildSvg(imagePath, 100),
           ),
           Flexible(
             child: Text(
@@ -80,4 +82,22 @@ Widget buildSvg(String imagePath, double size) {
             child: CircularProgressIndicator(),
           ),
         );
+}
+
+Widget buildImage(String imagePath, double size) {
+  return Container(
+    child: imagePath.substring(0, 4) == 'http'
+        ? CachedNetworkImage(
+            imageUrl: imagePath,
+            width: size,
+            height: size,
+            fit: BoxFit.contain,
+          )
+        : Image.asset(
+            imagePath,
+            width: size,
+            height: size,
+            fit: BoxFit.contain,
+          ),
+  );
 }

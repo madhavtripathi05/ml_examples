@@ -4,6 +4,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
 import 'package:ml_examples/app/common/widgets/custom_action.dart';
 import 'package:ml_examples/app/common/widgets/custom_appbar.dart';
+import 'package:ml_examples/app/common/widgets/webview_page.dart';
 import 'package:ml_examples/app/modules/image_segmentation/image_segmentation_controller.dart';
 import 'package:ml_examples/app/routes/app_pages.dart';
 import 'package:ml_examples/app/utils/app_utils.dart';
@@ -28,6 +29,15 @@ class ImageSegmentationView extends GetView<ImageSegmentationController> {
       body: kIsWeb
           ? Center(child: Text('Unsupported in Web, please check app'))
           : buildBody(),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(FlutterIcons.info_circle_faw),
+        onPressed: () => Get.to(
+          WebviewPage(
+            url: 'https://www.tensorflow.org/lite/models/segmentation/overview',
+            title: 'Image Classification',
+          ),
+        ),
+      ),
     );
   }
 
@@ -92,7 +102,21 @@ class ImageSegmentationView extends GetView<ImageSegmentationController> {
                   child: Image.file(ic.pickedImage, fit: BoxFit.fill),
                 ),
               )
-            : Container()
+            : Container(),
+        Container(
+          margin: EdgeInsets.all(18),
+          padding: EdgeInsets.all(18),
+          color: Get.isDarkMode ? Color(0xff222222) : Colors.grey[300],
+          child: Text(
+            """What Happens when you select an Image?
+
+We run a TFLite(TensorFlow Lite) Model on this image which processes the image and generates the predicted output. 
+
+For more info regarding the model used and other details, click on i button below
+""",
+            style: kCodeStyle,
+          ),
+        ),
       ]);
     });
   }

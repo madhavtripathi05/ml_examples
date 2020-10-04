@@ -43,6 +43,7 @@ class CustomAppBar extends PreferredSize {
                   Center(
                     child: Text(
                       '${this.title}',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Get.theme.primaryColor,
                         fontSize: Get.width > 500 ? 32 : 24,

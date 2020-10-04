@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:ml_examples/app/common/widgets/custom_action.dart';
 import 'package:ml_examples/app/common/widgets/custom_appbar.dart';
 import 'package:ml_examples/app/common/extensions/hover_extension.dart';
+import 'package:ml_examples/app/common/widgets/webview_page.dart';
 import 'package:ml_examples/app/modules/sentiment_analysis/sentiment_analysis_controller.dart';
 import 'package:ml_examples/app/routes/app_pages.dart';
 import 'package:ml_examples/app/utils/app_utils.dart';
@@ -29,6 +30,15 @@ class SentimentAnalysisView extends GetView<SentimentAnalysisController> {
           ],
         ),
         body: buildBody(),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(FlutterIcons.info_circle_faw),
+          onPressed: () => Get.to(
+            WebviewPage(
+              url: 'https://github.com/IBM/MAX-Text-Sentiment-Classifier',
+              title: 'Sentiment Analysis',
+            ),
+          ),
+        ),
       );
     });
   }
@@ -74,6 +84,20 @@ class SentimentAnalysisView extends GetView<SentimentAnalysisController> {
                   ),
                 )
               : Container(),
+          Container(
+            margin: EdgeInsets.all(18),
+            padding: EdgeInsets.all(18),
+            color: Get.isDarkMode ? Color(0xff222222) : Colors.grey[300],
+            child: Text(
+              """What Happens when you Enter the Text?
+
+We send this Text to an API(Application Programming Interface) which processes the same and generates the predicted output. 
+
+For more info regarding the model used and other details, click on i button below
+""",
+              style: kCodeStyle,
+            ),
+          ),
         ],
       );
     });

@@ -28,6 +28,7 @@ class MlAlgorithmsView extends GetView<MlAlgorithmsController> {
         ],
       ),
       body: buildBody(),
+      
     );
   }
 
